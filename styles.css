@@ -18,7 +18,7 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
   flex: 1;
   background: rgba(255, 255, 255, 0);
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/* box-shadow: 0 4px 10px rgba(0,0,0,0.1); */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -54,4 +54,31 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
 .scroll-container::-webkit-scrollbar-thumb {
   background-color: #aaaaaa00;
   border-radius: 4px;
+}
+
+.project {
+  position: relative; /* wichtig für das Overlay */
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.project img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Titel-Overlay unten links */
+.project .title {
+  position: absolute;
+  bottom: 0.5rem; /* Abstand vom unteren Rand */
+  left: 0.5rem;   /* Abstand vom linken Rand */
+  padding: 0.3rem 0.6rem;
+  background: rgba(0, 0, 0, 0.6); /* halbtransparent für Lesbarkeit */
+  color: white;
+  font-weight: bold;
+  font-size: 0.9rem;
+  border-radius: 2px;
 }
