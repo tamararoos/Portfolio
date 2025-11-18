@@ -35,7 +35,7 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
   width: 100%;
   height: auto;
   margin-bottom: 1rem;
-  border-radius: 6px;
+  border-radius: 20px;
   object-fit: cover;
   background-color: rgba(0, 255, 255, 0);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -59,7 +59,7 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
 .project {
   position: relative; /* wichtig für das Overlay */
   margin-bottom: 1rem;
-  border-radius: 6px;
+  border-radius: 20px;
   overflow: hidden;
 }
 
@@ -70,15 +70,21 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
   object-fit: cover;
 }
 
-/* Titel-Overlay unten links */
 .project .title {
   position: absolute;
-  bottom: 0.5rem; /* Abstand vom unteren Rand */
-  left: 0.5rem;   /* Abstand vom linken Rand */
-  padding: 0.3rem 0.6rem;
-  background: rgba(0, 0, 0, 0.6); /* halbtransparent für Lesbarkeit */
+  bottom: 1rem;
+  left: 0;
+  width: 100%;           /* volle Breite des Projekt-Containers */
+  white-space: nowrap;   /* verhindert Umbruch */
+  text-align: center;    /* Text mittig */
+  
+  padding: 0.8rem 0;
+  background: rgba(0, 0, 0, 0.6);
   color: white;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 0.9rem;
-  border-radius: 2px;
+  font-size: 1rem;
+  border-radius: 20px;
 }
+
+
