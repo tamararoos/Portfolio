@@ -41,10 +41,7 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.scroll-container img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}
+
 
 /* Scrollbar-Styling (optional) */
 .scroll-container::-webkit-scrollbar {
@@ -57,11 +54,18 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
 }
 
 .project {
-  position: relative; /* wichtig für das Overlay */
+  position: relative;
   margin-bottom: 1rem;
   border-radius: 20px;
   overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.project:hover {
+  transform: scale(1.02);
+
+}
+
 
 .project img {
   width: 100%;
@@ -84,7 +88,26 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1rem;
-  border-radius: 20px;
+  border-radius: 0 0 20px 20px;
 }
 
 
+.about-button {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 20px;
+  text-decoration: none;
+margin: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 1000;
+}
+
+.about-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
