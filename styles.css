@@ -81,10 +81,10 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
   width: 100%;           /* volle Breite des Projekt-Containers */
   white-space: nowrap;   /* verhindert Umbruch */
   text-align: center;    /* Text mittig */
-  
+  margin: 0;
   padding: 0.8rem 0;
   background: rgba(0, 0, 0, 0.6);
-  color: white;
+  color: rgb(255, 255, 255);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1rem;
@@ -93,7 +93,11 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
 
 
 .about-button {
-  display: inline-block;
+  position: fixed;      /* bleibt oben und schwebt über allem */
+  top: 1.5rem;          /* Abstand nach oben */
+  left: 1.5rem;         /* Abstand nach links */
+  z-index: 9999;        /* GANZ WICHTIG: liegt vor allem anderen */
+
   padding: 0.8rem 1.4rem;
   background: #ffffff;
   color: rgb(0, 0, 0);
@@ -102,12 +106,21 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
   font-weight: bold;
   border-radius: 20px;
   text-decoration: none;
-margin: 1.5rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  z-index: 1000;
 }
+
 
 .about-button:hover {
   transform: scale(1.02);
   box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+}
+/* Swiper soll exakt wie deine alte Scrollbox aussehen */
+.scroll-container.swiper {
+  padding: 1rem;
+}
+
+/* Slides sollen wie normale .project-Elemente aussehen */
+.swiper-slide {
+  width: 100% !important;
+  height: auto !important;
 }
