@@ -1,9 +1,32 @@
+:root {
+  --page-bg: linear-gradient(180deg, rgb(217, 217, 217) 33%, rgba(0, 0, 0, 1) 79%);
+}
+
+body[data-bg="pink"] {
+  --page-bg: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 79%);
+}
+
+body[data-bg="blue"] {
+  --page-bg: linear-gradient(180deg, rgba(41, 96, 196, 1) 33%, rgba(0, 0, 0, 1) 79%);
+}
+
+body[data-bg="green"] {
+  --page-bg: linear-gradient(180deg, rgba(41, 196, 92, 1) 33%, rgba(0, 0, 0, 1) 79%);
+}
+
+body[data-bg="orange"] {
+  --page-bg: linear-gradient(180deg, rgba(255, 159, 41, 1) 33%, rgba(0, 0, 0, 1) 79%);
+}
+
+body[data-bg="yellow"] {
+  --page-bg: linear-gradient(180deg, rgb(255, 251, 0) 33%, rgba(0, 0, 0, 1) 79%);
+}
+
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-background: #000000;
-background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 79%);
-
+  background: var(--page-bg);
 }
 
 .portfolio-container {
@@ -59,6 +82,10 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+
 }
 
 .project:hover {
@@ -123,4 +150,68 @@ background: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 
 .swiper-slide {
   width: 100% !important;
   height: auto !important;
+}
+/* Basis */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header: Name über zwei Spalten */
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  flex: 1 1 100%; /* Nimmt die volle Breite auf kleinen Bildschirmen */
+  text-align: center;
+}
+
+/* Hauptbereich: 3 Spalten */
+.main {
+  display: flex;
+  flex-wrap: wrap; /* damit die Spalten umbrechen */
+  gap: 20px; /* Abstand zwischen den Spalten */
+}
+
+.column {
+  flex: 1; /* Jede Spalte gleich groß */
+  min-width: 250px; /* Damit es auf kleinen Bildschirmen nicht zu klein wird */
+}
+
+/* Bildspalte */
+.image-column img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Textspalten */
+.text-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+
+/* Responsive: Auf kleinen Bildschirmen Spalten untereinander */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .text-column {
+    text-align: center;
+  }
 }
