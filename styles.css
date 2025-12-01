@@ -1,27 +1,50 @@
 :root {
-  --page-bg: linear-gradient(180deg, rgb(217, 217, 217) 33%, rgba(0, 0, 0, 1) 79%);
+  --page-bg: linear-gradient(
+    180deg,
+    rgb(217, 217, 217) 33%,
+    rgba(0, 0, 0, 1) 79%
+  );
 }
 
 body[data-bg="pink"] {
-  --page-bg: linear-gradient(180deg, rgba(196, 41, 178, 1) 33%, rgba(0, 0, 0, 1) 79%);
+  --page-bg: linear-gradient(
+    180deg,
+    rgba(196, 41, 178, 1) 33%,
+    rgba(0, 0, 0, 1) 79%
+  );
 }
 
 body[data-bg="blue"] {
-  --page-bg: linear-gradient(180deg, rgba(41, 96, 196, 1) 33%, rgba(0, 0, 0, 1) 79%);
+  --page-bg: linear-gradient(
+    180deg,
+    rgba(41, 96, 196, 1) 33%,
+    rgba(0, 0, 0, 1) 79%
+  );
 }
 
 body[data-bg="green"] {
-  --page-bg: linear-gradient(180deg, rgba(41, 196, 92, 1) 33%, rgba(0, 0, 0, 1) 79%);
+  --page-bg: linear-gradient(
+    180deg,
+    rgba(41, 196, 92, 1) 33%,
+    rgba(0, 0, 0, 1) 79%
+  );
 }
 
 body[data-bg="orange"] {
-  --page-bg: linear-gradient(180deg, rgba(255, 159, 41, 1) 33%, rgba(0, 0, 0, 1) 79%);
+  --page-bg: linear-gradient(
+    180deg,
+    rgba(255, 159, 41, 1) 33%,
+    rgba(0, 0, 0, 1) 79%
+  );
 }
 
 body[data-bg="yellow"] {
-  --page-bg: linear-gradient(180deg, rgb(255, 251, 0) 33%, rgba(0, 0, 0, 1) 79%);
+  --page-bg: linear-gradient(
+    180deg,
+    rgb(255, 251, 0) 33%,
+    rgba(0, 0, 0, 1) 79%
+  );
 }
-
 
 body {
   margin: 0;
@@ -41,7 +64,7 @@ body {
   flex: 1;
   background: rgba(255, 255, 255, 0);
   border-radius: 8px;
-/* box-shadow: 0 4px 10px rgba(0,0,0,0.1); */
+  /* box-shadow: 0 4px 10px rgba(0,0,0,0.1); */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -50,7 +73,7 @@ body {
 .scroll-container {
   overflow-y: auto;
   padding: 1rem;
-   background-color: rgba(255, 0, 225, 0);
+  background-color: rgba(255, 0, 225, 0);
 }
 
 /* Bilder-Styling */
@@ -63,8 +86,6 @@ body {
   background-color: rgba(0, 255, 255, 0);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-
 
 /* Scrollbar-Styling (optional) */
 .scroll-container::-webkit-scrollbar {
@@ -85,14 +106,11 @@ body {
   display: block;
   text-decoration: none;
   color: inherit;
-
 }
 
 .project:hover {
   transform: scale(1.02);
-
 }
-
 
 .project img {
   width: 100%;
@@ -105,9 +123,9 @@ body {
   position: absolute;
   bottom: 1rem;
   left: 0;
-  width: 100%;           /* volle Breite des Projekt-Containers */
-  white-space: nowrap;   /* verhindert Umbruch */
-  text-align: center;    /* Text mittig */
+  width: 100%; /* volle Breite des Projekt-Containers */
+  white-space: nowrap; /* verhindert Umbruch */
+  text-align: center; /* Text mittig */
   margin: 0;
   padding: 0.8rem 0;
   background: rgba(0, 0, 0, 0.6);
@@ -118,12 +136,11 @@ body {
   border-radius: 0 0 20px 20px;
 }
 
-
 .about-button {
-  position: fixed;      /* bleibt oben und schwebt über allem */
-  top: 1.5rem;          /* Abstand nach oben */
-  left: 1.5rem;         /* Abstand nach links */
-  z-index: 9999;        /* GANZ WICHTIG: liegt vor allem anderen */
+  position: fixed; /* bleibt oben und schwebt über allem */
+  top: 1.5rem; /* Abstand nach oben */
+  left: 1.5rem; /* Abstand nach links */
+  z-index: 9999; /* GANZ WICHTIG: liegt vor allem anderen */
 
   padding: 0.8rem 1.4rem;
   background: #ffffff;
@@ -136,10 +153,9 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-
 .about-button:hover {
   transform: scale(1.02);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 }
 /* Swiper soll exakt wie deine alte Scrollbox aussehen */
 .scroll-container.swiper {
@@ -214,4 +230,194 @@ body {
   .text-column {
     text-align: center;
   }
+}
+
+/* Back Button */
+.back-button {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: white;
+  color: black;
+  padding: 0.7rem 1.4rem;
+  border-radius: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  z-index: 999;
+}
+
+/*Projektseite CSS*/
+
+/* 2-Spalten Layout */
+.project-layout {
+  display: flex;
+  gap: 3rem;
+  padding: 4.5rem;
+}
+
+/* Linke Spalte */
+.project-left {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.main-image {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+  object-fit: cover;
+}
+
+/* Titel */
+.project-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color:#ffffff;
+}
+
+/* Rechte Spalte */
+.project-right {
+  width: 60%;
+}
+
+/* Tags */
+.tag-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag-index {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  /*flex-direction: column;*/
+  z-index: 10;
+}
+
+.tag {
+  background: white;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.tag-watch {
+  background: black;
+  color: white;
+}
+
+/* Beschreibung */
+.project-description {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  max-width: 100vw;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
+/* Galerie */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .project-layout {
+    flex-direction: column;
+  }
+
+  .project-left, .project-right {
+    width: 100%;
+  }
+}
+
+
+
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 40px;
+}
+
+.label {
+  display: inline-block;
+  background: white;
+  color: black;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.name {
+  font-size: 60px;
+  margin: 10px 0 40px 0;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 250px 1fr 150px;
+  gap: 40px;
+  align-items: start;
+}
+
+.portrait {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.text-block {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.skills h3 {
+  margin-top: 0;
+}
+
+.tag {
+  display: block;
+  background: white;
+  color: black;
+  padding: 5px 12px;
+  border-radius: 15px;
+  margin-bottom: 8px;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.cv-button {
+  display: inline-block;
+  margin-top: 40px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  padding: 10px 25px;
+  border-radius: 25px;
+  text-decoration: none;
+}
+
+.contact {
+  margin-top: 60px;
+  font-size: 18px;
 }
