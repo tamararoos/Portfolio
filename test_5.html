@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vertikales Karussell</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .swiper {
+      width: 300px;
+      height: 450px; /* 3 Slides à 150px */
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      
+    }
+
+    .swiper-slide {
+      background: #222;
+      border-bottom: 1px solid #444;
+      font-size: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 150px;
+    }
+    
+.mySwiper > .swiper-wrapper {
+    transition-timing-function: linear;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">Slide 1</div>
+      <div class="swiper-slide">Slide 2</div>
+      <div class="swiper-slide">Slide 3</div>
+      <div class="swiper-slide">Slide 4</div>
+      <div class="swiper-slide">Slide 5</div>
+      <div class="swiper-slide">Slide 6</div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    const swiper = new Swiper(".mySwiper", {
+      direction: "vertical",
+      loop: true,
+      slidesPerView: 3,
+      centeredSlides: true,
+     freeMode: true,
+      
+
+      speed: 700, // Geschwindigkeit der gesamten Schleife
+      autoplay: {
+        delay: 0,            // kontinuierlich
+        disableOnInteraction: false, 
+
+      },
+
+
+      mousewheel: true,      // Scroll-Eingriff
+      simulateTouch: true,   // Touch-Swipe möglich
+    });
+
+    let resetTimer;
+
+    swiper.el.addEventListener("wheel", () => {
+      swiper.autoplay.stop(); // kurz pausieren
+
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(() => {
+        swiper.autoplay.start(); // nach 1 Sekunde wieder starten
+      }, 1000);
+    });
+  </script>
+
+</body>
+</html>
