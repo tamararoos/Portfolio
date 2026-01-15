@@ -36,6 +36,7 @@ document.querySelectorAll('.scroll-container').forEach((item) => {
   // Scroll speed
   let scrollSpeed = (Math.random() -0.5)*5
 
+
   function scrollStep() {
     if (!isHovered) {
       item.scrollTop += scrollSpeed
