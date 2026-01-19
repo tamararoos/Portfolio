@@ -9,7 +9,7 @@
 body[data-bg="pink"] {
   --page-bg: linear-gradient(
     180deg,
-    rgba(196, 41, 178, 1) 33%,
+    rgb(78, 28, 77) 33%,
     rgba(0, 0, 0, 1) 79%
   );
 }
@@ -30,7 +30,7 @@ body[data-bg="blue"] {
 body[data-bg="green"] {
   --page-bg: linear-gradient(
     180deg,
-    rgba(41, 196, 92, 1) 33%,
+    rgb(50, 71, 35) 33%,
     rgba(0, 0, 0, 1) 79%
   );
 }
@@ -378,12 +378,14 @@ text-decoration: none;
 
 /* Video Container */
 .video-container {
-  margin-bottom: 2rem;
+  height: 270px;
+  width: 40%;
   border-radius: 20px;
   overflow: hidden;
 }
 
 .video-container iframe {
+  height: 270px;
   display: block;
   border-radius: 20px;
 }
@@ -400,16 +402,21 @@ text-decoration: none;
 
 /* Galerie */
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+
+  width: 100%;
+  overflow-y: auto;
 }
 
 .gallery img {
-  flex: 0 1 calc(33.333% - 1rem);
-  height: 250px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 20px;
-  object-fit: contain;
+  display: block;
+  margin-bottom: 0;
 }
 
 /* Bilder: Flexbox mit gleicher Größe, 3 Bilder pro Reihe */
