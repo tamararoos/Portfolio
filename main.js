@@ -68,11 +68,15 @@ function reorderProjectsForMobile() {
   });
 
   let scrollSpeed = 1;
+  // Animation-Frame-Id für die mobile Scroll-Animation
+  if (window.mobileScrollFrameId) {
+    cancelAnimationFrame(window.mobileScrollFrameId);
+  }
   function scrollStep() {
     if (!isHovered) {
       mobileContainer.scrollTop += scrollSpeed;
     }
-    requestAnimationFrame(scrollStep);
+    window.mobileScrollFrameId = requestAnimationFrame(scrollStep);
   }
   scrollStep();
 }
