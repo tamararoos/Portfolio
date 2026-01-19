@@ -1,4 +1,4 @@
-document.querySelectorAll(".scroll-container").forEach((item) => {
+document.querySelectorAll(".scroll-container").forEach((item, index) => {
   const originalContent = item.innerHTML;
   let duplicatedContent = "";
   for (let i = 0; i < 3; i++) {
@@ -32,8 +32,13 @@ document.querySelectorAll(".scroll-container").forEach((item) => {
     isHovered = false;
   });
 
-  // Scroll speed
-  let scrollSpeed = (Math.random() - 0.5) * 5;
+  // Scroll-Geschwindigkeit individuell pro Spalte
+  let scrollDirection = index % 2 === 0 ? 1 : -1;
+  let baseSpeed = 1;
+  if (index === 0) baseSpeed = 1.2; // Spalte 1
+  else if (index === 1) baseSpeed = 1; // Spalte 2
+  else if (index === 2) baseSpeed = 1.1; // Spalte 3
+  let scrollSpeed = scrollDirection * baseSpeed;
 
   function scrollStep() {
     if (!isHovered) {
@@ -42,5 +47,5 @@ document.querySelectorAll(".scroll-container").forEach((item) => {
     requestAnimationFrame(scrollStep);
   }
 
-  requestAnimationFrame(scrollStep);
+  scrollStep();
 });
