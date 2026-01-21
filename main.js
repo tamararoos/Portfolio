@@ -5,15 +5,16 @@ function reorderProjectsForMobile() {
     document.querySelectorAll(".column .scroll-container"),
   );
   if (columns.length < 3) return;
-  // Hole alle Projekte pro Spalte
-  const projects = columns.map((col) =>
+  // Projekte zeilenweise aus allen Spalten sammeln
+  const projectsPerColumn = columns.map((col) =>
     Array.from(col.querySelectorAll(".project")),
   );
-  const maxLen = Math.max(...projects.map((arr) => arr.length));
+  const maxLen = Math.max(...projectsPerColumn.map((arr) => arr.length));
   const ordered = [];
   for (let i = 0; i < maxLen; i++) {
-    for (let col = 0; col < projects.length; col++) {
-      if (projects[col][i]) ordered.push(projects[col][i].outerHTML);
+    for (let col = 0; col < projectsPerColumn.length; col++) {
+      if (projectsPerColumn[col][i])
+        ordered.push(projectsPerColumn[col][i].outerHTML);
     }
   }
   // Neues Container-Element für mobile Ansicht
@@ -31,34 +32,12 @@ function reorderProjectsForMobile() {
         document.querySelector("main.portfolio-container").nextSibling,
       );
   }
+  // Nur einmal alle Projekte untereinander, keine Wiederholung
   mobileContainer.innerHTML = ordered.join("");
   document.querySelector("main.portfolio-container").style.display = "none";
   mobileContainer.style.display = "block";
 
-  // Scroll-Logik für mobile scroll-container
-  let originalContent = mobileContainer.innerHTML;
-  let duplicatedContent = "";
-  for (let i = 0; i < 3; i++) {
-    duplicatedContent += originalContent;
-  }
-  mobileContainer.innerHTML = duplicatedContent;
-  mobileContainer.scrollTop =
-    (mobileContainer.scrollHeight - mobileContainer.clientHeight) / 2;
-
-  mobileContainer.addEventListener("scroll", () => {
-    const topEdge = mobileContainer.scrollHeight * 0.01;
-    const bottomEdge = mobileContainer.scrollHeight * 0.99;
-    const itemsHeight = mobileContainer.scrollHeight / 3;
-    if (mobileContainer.scrollTop < topEdge) {
-      mobileContainer.scrollTop += itemsHeight;
-    } else if (
-      mobileContainer.scrollTop + mobileContainer.clientHeight >
-      bottomEdge
-    ) {
-      mobileContainer.scrollTop -= itemsHeight;
-    }
-  });
-
+  // Automatisches Scrollen für mobile Ansicht
   let isHovered = false;
   mobileContainer.addEventListener("mouseenter", () => {
     isHovered = true;
@@ -68,7 +47,6 @@ function reorderProjectsForMobile() {
   });
 
   let scrollSpeed = 1;
-  // Animation-Frame-Id für die mobile Scroll-Animation
   if (window.mobileScrollFrameId) {
     cancelAnimationFrame(window.mobileScrollFrameId);
   }
@@ -85,8 +63,11 @@ function reorderProjectsForMobile() {
 
   mobileContainer.addEventListener("touchstart", () => {
     autoScrollActive = false;
-    if (window.mobileScrollFrameId) {
-      cancelAnimationFrame(window.mobileScrollFrameId);
+  });
+  mobileContainer.addEventListener("touchend", () => {
+    if (!autoScrollActive) {
+      autoScrollActive = true;
+      scrollStep();
     }
   });
 }
@@ -107,6 +88,7 @@ function handleResize() {
 }
 
 window.addEventListener("resize", handleResize);
+window.addEventListener("DOMContentLoaded", handleResize);
 document.querySelectorAll(".scroll-container").forEach((item, index) => {
   const originalContent = item.innerHTML;
   let duplicatedContent = "";

@@ -1,3 +1,20 @@
+@media (max-width: 900px) {
+  .portfolio-container {
+    display: none !important;
+  }
+  #mobile-projects {
+    display: block !important;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  #mobile-projects .project {
+    width: 100%;
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+  }
+}
 @media (max-width: 1024px) {
   html,
   body,
