@@ -477,12 +477,18 @@ text-decoration: none;
 
 }
 
+.video-container:hover {
+  transform: scale(1.02);
+  transition: transform 0.3s ease;
+}
 .video-container iframe {
   height: 230px;
   display: block;
   border-radius: 20px;
 
 }
+
+
 
 /* Beschreibung */
 .project-description {
