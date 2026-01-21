@@ -46,8 +46,8 @@ function reorderProjectsForMobile() {
     (mobileContainer.scrollHeight - mobileContainer.clientHeight) / 2;
 
   mobileContainer.addEventListener("scroll", () => {
-    const topEdge = mobileContainer.scrollHeight * 0.1;
-    const bottomEdge = mobileContainer.scrollHeight * 0.9;
+    const topEdge = mobileContainer.scrollHeight * 0.01;
+    const bottomEdge = mobileContainer.scrollHeight * 0.99;
     const itemsHeight = mobileContainer.scrollHeight / 3;
     if (mobileContainer.scrollTop < topEdge) {
       mobileContainer.scrollTop += itemsHeight;
