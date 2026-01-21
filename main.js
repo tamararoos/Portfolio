@@ -72,13 +72,23 @@ function reorderProjectsForMobile() {
   if (window.mobileScrollFrameId) {
     cancelAnimationFrame(window.mobileScrollFrameId);
   }
+  let autoScrollActive = true;
   function scrollStep() {
-    if (!isHovered) {
+    if (!isHovered && autoScrollActive) {
       mobileContainer.scrollTop += scrollSpeed;
     }
-    window.mobileScrollFrameId = requestAnimationFrame(scrollStep);
+    if (autoScrollActive) {
+      window.mobileScrollFrameId = requestAnimationFrame(scrollStep);
+    }
   }
   scrollStep();
+
+  mobileContainer.addEventListener("touchstart", () => {
+    autoScrollActive = false;
+    if (window.mobileScrollFrameId) {
+      cancelAnimationFrame(window.mobileScrollFrameId);
+    }
+  });
 }
 
 function resetProjectsForDesktop() {
