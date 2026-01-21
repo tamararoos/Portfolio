@@ -1,3 +1,24 @@
+/* Impressum-Link unten links, vertikal und weiß */
+.impressum-link {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  writing-mode: vertical-lr;
+  rotate: 180deg;
+  text-orientation: mixed;
+  color: #fff;
+  background: none;
+  text-decoration: none;
+  font-family: "Inter", sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  padding: 1.2rem 0.1rem 1.5rem 0.3rem;
+  z-index: 1000;
+  transition: color 0.2s;
+}
+.impressum-link:hover {
+  color: #ff0be3;
+}
 @media (max-width: 900px) {
   .portfolio-container {
     display: none !important;
@@ -427,7 +448,7 @@ body {
   font-weight: bold;
   color: #ffffff;
   font-family: "Roboto", sans-serif;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 /* Rechte Spalte */
