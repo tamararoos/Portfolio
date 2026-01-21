@@ -1,3 +1,9 @@
+@media (max-width: 1024px) {
+  html, body, .scroll-container {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
 
 html {
   /* Sorgt dafür, dass Sprünge (z.B. durch Anker-Links) sanft gleiten */
