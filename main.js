@@ -37,39 +37,7 @@ function reorderProjectsForMobile() {
   document.querySelector("main.portfolio-container").style.display = "none";
   mobileContainer.style.display = "block";
 
-  // Automatisches Scrollen für mobile Ansicht
-  let isHovered = false;
-  mobileContainer.addEventListener("mouseenter", () => {
-    isHovered = true;
-  });
-  mobileContainer.addEventListener("mouseleave", () => {
-    isHovered = false;
-  });
-
-  let scrollSpeed = 1;
-  if (window.mobileScrollFrameId) {
-    cancelAnimationFrame(window.mobileScrollFrameId);
-  }
-  let autoScrollActive = true;
-  function scrollStep() {
-    if (!isHovered && autoScrollActive) {
-      mobileContainer.scrollTop += scrollSpeed;
-    }
-    if (autoScrollActive) {
-      window.mobileScrollFrameId = requestAnimationFrame(scrollStep);
-    }
-  }
-  scrollStep();
-
-  mobileContainer.addEventListener("touchstart", () => {
-    autoScrollActive = false;
-  });
-  mobileContainer.addEventListener("touchend", () => {
-    if (!autoScrollActive) {
-      autoScrollActive = true;
-      scrollStep();
-    }
-  });
+  // Automatisches Scrollen und Animationen entfernt, damit mobiles Scrollen flüssig bleibt
 }
 
 function resetProjectsForDesktop() {
