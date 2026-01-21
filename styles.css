@@ -1,4 +1,15 @@
 
+html {
+  /* Sorgt dafür, dass Sprünge (z.B. durch Anker-Links) sanft gleiten */
+  scroll-behavior: smooth;
+  /* Verhindert das unschöne "Flackern" beim Tippen auf iOS */
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  /* Aktiviert natives Schwung-Scrollen für iOS-Geräte */
+  -webkit-overflow-scrolling: touch;
+}
 :root {
   --page-bg: linear-gradient(
     180deg,
@@ -352,6 +363,11 @@ body {
   font-weight: bold;
   text-decoration: none;
   z-index: 999;
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
 }
 
 /*Projektseite CSS*/
