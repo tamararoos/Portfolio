@@ -650,6 +650,16 @@ margin-top: 7px;
       width:fit-content;
 }
 
+.cv-button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+.mail-button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
 .mail-button {
   display: inline-block;
   background: white;
