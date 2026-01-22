@@ -17,7 +17,8 @@
   transition: color 0.2s;
 }
 .impressum-link:hover {
-  color: #ff0be3;
+  transform: scale(1.02);
+  color: #cccccc;
 }
 @media (max-width: 900px) {
   .portfolio-container {
