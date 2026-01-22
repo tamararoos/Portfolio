@@ -150,12 +150,12 @@ window.addEventListener("DOMContentLoaded", () => {
     // Scroll-Geschwindigkeit individuell pro Spalte
     let scrollDirection = 1;
     if (index === 1) scrollDirection = -1; // Spalte 2 nach oben
-    let baseSpeed = 1;
+    let baseSpeed = 0.5;
     if (index === 0)
-      baseSpeed = 1.2; // Spalte 1
+      baseSpeed = 0.1; // Spalte 1
     else if (index === 1)
-      baseSpeed = 1.3; // Spalte 2
-    else if (index === 2) baseSpeed = 1.1; // Spalte 3
+      baseSpeed = 0.3; // Spalte 2
+    else if (index === 2) baseSpeed = 0.2; // Spalte 3
     let scrollSpeed = scrollDirection * baseSpeed;
 
     function scrollStep() {
